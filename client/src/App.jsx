@@ -11,10 +11,13 @@ function App() {
     console.log("form submitted: ",queryDescription)
   }
   return (
+    
     <main className={styles.main}>
-      <img src={sqlLogo} alt="sql logo" className='{styles.icon}'></img>
+      
       <h1>queryGenie</h1>
       <h3>your que-viour is here</h3>
+
+      <img src={sqlLogo} alt="sql logo" className='{styles.icon}'></img>
 
 
       <form onSubmit = {onSubmit}>
