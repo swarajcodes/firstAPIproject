@@ -1,4 +1,5 @@
-import {configuration, OpenAIApi} from "openai";
+import {GoogleGenAI} from "@google/genai";
+import {InferenceClient} from "@huggingface/inference";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -9,9 +10,6 @@ if (!openaiApiKey){
     process.exit(1);
 }
 
-const configuration = new Configuration({
-    apiKey: openaiApiKey,
-});
-const openai = new OpenAIApi(configuration);
+const openai = new InferenceClient(openaiApiKey);
 
 export default openai;
