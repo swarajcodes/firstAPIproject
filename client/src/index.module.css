@@ -4,10 +4,48 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg-gradient-start: #f5f7fa;
+  --bg-gradient-end: #e4e8eb;
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --text-tertiary: #718096;
+  --accent-color: #48bb78;
+  --accent-hover: #38a169;
+  --form-bg: white;
+  --input-bg: white;
+  --input-border: #e2e8f0;
+  --pre-bg: #f7fafc;
+  --pre-border: #e2e8f0;
+  --button-text: white;
+  --copy-button-bg: #f7fafc;
+  --copy-button-border: #e2e8f0;
+  --copy-button-text: #48bb78;
+}
+
+[data-theme="dark"] {
+  --bg-gradient-start: #1a202c;
+  --bg-gradient-end: #2d3748;
+  --text-primary: #e2e8f0;
+  --text-secondary: #a0aec0;
+  --text-tertiary: #718096;
+  --accent-color: #48bb78;
+  --accent-hover: #38a169;
+  --form-bg: #2d3748;
+  --input-bg: #1a202c;
+  --input-border: #4a5568;
+  --pre-bg: #1a202c;
+  --pre-border: #4a5568;
+  --button-text: #1a202c;
+  --copy-button-bg: #2d3748;
+  --copy-button-border: #4a5568;
+  --copy-button-text: #48bb78;
+}
+
 body {
   margin: 0;
   padding: 0;
-  background: #1a202c;
+  background: var(--bg-gradient-start);
 }
 
 @font-face {
@@ -29,7 +67,7 @@ body {
 .main input {
   font-size: 16px;
   line-height: 24px;
-  color: #e2e8f0;
+  color: var(--text-primary);
   font-family: "ColfaxAI", Helvetica, sans-serif;
 }
 .main {
@@ -38,18 +76,18 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 2rem;
-  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
 }
 .main h1 {
   font-size: 2.5rem;
-  color: #48bb78;
+  color: var(--accent-color);
   margin-bottom: 0.5rem;
   font-weight: bold;
   text-shadow: 0 0 10px rgba(72, 187, 120, 0.3);
 }
 .main h3 {
   font-size: 1.25rem;
-  color: #a0aec0;
+  color: var(--text-secondary);
   margin-bottom: 2rem;
   font-weight: normal;
 }
@@ -68,33 +106,33 @@ body {
   flex-direction: column;
   width: 100%;
   max-width: 500px;
-  background: #2d3748;
+  background: var(--form-bg);
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  border: 1px solid #4a5568;
+  border: 1px solid var(--input-border);
 }
 .main input[type="text"] {
   padding: 1rem;
-  border: 2px solid #4a5568;
+  border: 2px solid var(--input-border);
   border-radius: 8px;
   margin-bottom: 1rem;
   font-size: 1rem;
   transition: all 0.3s ease;
   width: 100%;
   box-sizing: border-box;
-  background-color: #1a202c;
-  color: #e2e8f0;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
 }
 .main input[type="text"]:focus {
-  border-color: #48bb78;
+  border-color: var(--accent-color);
   outline: none;
   box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.2);
 }
 .main input[type="submit"] {
   padding: 1rem;
-  color: #1a202c;
-  background-color: #48bb78;
+  color: var(--button-text);
+  background-color: var(--accent-color);
   border: none;
   border-radius: 8px;
   font-size: 1rem;
@@ -103,7 +141,7 @@ body {
   transition: all 0.3s ease;
 }
 .main input[type="submit"]:hover {
-  background-color: #38a169;
+  background-color: var(--accent-hover);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
 }
@@ -113,27 +151,27 @@ body {
 .main pre {
   margin-top: 1.5rem;
   padding: 1rem;
-  background-color: #1a202c;
+  background-color: var(--pre-bg);
   border-radius: 8px;
-  border: 1px solid #4a5568;
+  border: 1px solid var(--pre-border);
   overflow-x: auto;
   font-family: 'Consolas', 'Monaco', monospace;
   font-size: 0.9rem;
   line-height: 1.5;
-  color: #48bb78;
+  color: var(--accent-color);
   position: relative;
 }
 .main ::placeholder {
-  color: #718096;
+  color: var(--text-tertiary);
   opacity: 1;
 }
 .copyButton {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  background: #2d3748;
-  border: 1px solid #4a5568;
-  color: #48bb78;
+  background: var(--copy-button-bg);
+  border: 1px solid var(--copy-button-border);
+  color: var(--copy-button-text);
   padding: 0.5rem;
   border-radius: 4px;
   cursor: pointer;
@@ -143,9 +181,9 @@ body {
   gap: 0.5rem;
 }
 .copyButton:hover {
-  background: #48bb78;
-  color: #1a202c;
-  border-color: #48bb78;
+  background: var(--accent-color);
+  color: var(--button-text);
+  border-color: var(--accent-color);
 }
 .copyButton:active {
   transform: scale(0.95);
@@ -153,6 +191,32 @@ body {
 .copyButton svg {
   width: 16px;
   height: 16px;
+}
+.themeToggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--form-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-primary);
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+.themeToggle:hover {
+  background: var(--accent-color);
+  color: var(--button-text);
+  border-color: var(--accent-color);
+}
+.themeToggle svg {
+  width: 20px;
+  height: 20px;
 }
 @media (max-width: 640px) {
   .main {
