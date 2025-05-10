@@ -17,7 +17,9 @@ function App() {
   }
 
   const generateQuery = async() => {
-    const response = await fetch("http://localhost:3005/generate",{
+
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3005'
+    const response = await fetch(`${apiUrl}/generate`,{
       method: "POST",
       headers: {
         "Content-Type": "application/json"
